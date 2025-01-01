@@ -81,3 +81,42 @@ export const removeTask: RequestHandler = async (req, res, next) => {
     next(error);
   }
 };
+
+export const updateTask: RequestHandler = async (req, res, next) => {
+  // your code here
+  const errors = validationResult(req);
+  try {
+    // your code here
+    console.log("c1");
+    validationErrorParser(errors);
+    console.log("c2");
+
+    const { title, description, isChecked, dateCreated } = req.body;
+    const task = {
+      title: title,
+      description: description,
+      isChecked: isChecked,
+      dateCreated: dateCreated,
+    };
+    if (req.body._id != req.params.id) {
+      console.log(req.body._id, req.params.id);
+      console.log("c3");
+      res.status(400);
+    } else {
+      console.log("c4");
+      const currentTask = await TaskModel.findByIdAndUpdate(req.params.id, task);
+      if (currentTask === null) {
+        console.log("c5");
+        throw createHttpError(404, "Task not found.");
+      } else {
+        console.log("c6");
+        const updatedTask = await TaskModel.findById(req.params.id);
+        res.status(200).json(updatedTask);
+        console.log("c7");
+      }
+    }
+  } catch (error) {
+    console.log("c7");
+    next(error);
+  }
+};
