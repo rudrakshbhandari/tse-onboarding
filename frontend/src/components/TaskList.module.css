@@ -1,0 +1,14 @@
+.title {
+  font: var(--font-heading);
+}
+
+.itemContainer {
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+}
+
+.listContainer {
+  margin-top: 3rem;
+}
