@@ -51,3 +51,7 @@
 .checked {
   color: var(--color-text-secondary);
 }
+
+.userTag {
+  width: 12rem;
+}

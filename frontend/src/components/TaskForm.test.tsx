@@ -4,11 +4,12 @@ import { createTask } from "src/api/tasks";
 import { TaskForm } from "src/components/TaskForm";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
-import type { CreateTaskRequest, Task } from "src/api/tasks";
+import { CreateTaskRequest, Task, updateTask, UpdateTaskRequest } from "src/api/tasks";
 import type { TaskFormProps } from "src/components/TaskForm";
 
 const TITLE_INPUT_ID = "task-title-input";
 const DESCRIPTION_INPUT_ID = "task-description-input";
+const ASSIGNEEID_INPUT_ID = "task-assigneeID-input";
 const SAVE_BUTTON_ID = "task-save-button";
 
 /**
@@ -35,6 +36,7 @@ vi.mock("src/api/tasks", () => ({
    * See https://vitest.dev/guide/mocking#functions for more info about mock functions.
    */
   createTask: vi.fn((_params: CreateTaskRequest) => Promise.resolve({ success: true })),
+  updateTask: vi.fn((_params: UpdateTaskRequest) => Promise.resolve({ success: true })),
 }));
 
 /**
@@ -46,6 +48,7 @@ const mockTask: Task = {
   description: "Very important",
   isChecked: false,
   dateCreated: new Date(),
+  assignee: { _id: "user123", name: "James Goodwin", profilePictureURL: "www.google.com" },
 };
 
 /**
@@ -131,12 +134,19 @@ describe("TaskForm", () => {
     fireEvent.change(screen.getByTestId(DESCRIPTION_INPUT_ID), {
       target: { value: "Updated description" },
     });
+    fireEvent.change(screen.getByTestId(ASSIGNEEID_INPUT_ID), {
+      target: { value: "User456" },
+    });
     const saveButton = screen.getByTestId(SAVE_BUTTON_ID);
     fireEvent.click(saveButton);
-    expect(createTask).toHaveBeenCalledTimes(1);
-    expect(createTask).toHaveBeenCalledWith({
+    expect(updateTask).toHaveBeenCalledTimes(1);
+    expect(updateTask).toHaveBeenCalledWith({
       title: "Updated title",
       description: "Updated description",
+      assignee: "User456",
+      isChecked: false,
+      _id: "task123",
+      dateCreated: mockTask.dateCreated,
     });
     await waitFor(() => {
       // If the test ends before all state updates and rerenders occur, we'll
