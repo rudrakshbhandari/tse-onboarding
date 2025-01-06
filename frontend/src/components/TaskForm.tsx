@@ -49,12 +49,13 @@ export function TaskForm({ mode, task, onSubmit }: TaskFormProps) {
     // first, do any validation that we can on the frontend
     setErrors({});
     if (title.length === 0) {
+      // alert("hi");
       setErrors({ title: true });
       return;
     }
     setLoading(true);
     if (mode === "create") {
-      createTask({ title: title, description: description, assignee: assigneeID })
+      createTask({ title, description, assignee: assigneeID })
         .then((result) => {
           if (result.success) {
             // clear the form
@@ -80,11 +81,11 @@ export function TaskForm({ mode, task, onSubmit }: TaskFormProps) {
     } else if (mode === "edit" && task) {
       updateTask({
         _id: task?._id,
-        title: title,
-        description: description,
+        title,
+        description,
         isChecked: task?.isChecked,
         dateCreated: task?.dateCreated,
-        assignee: assigneeID,
+        assignee: assigneeID || null,
       })
         .then((result) => {
           if (result.success) {

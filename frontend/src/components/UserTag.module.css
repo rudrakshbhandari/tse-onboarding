@@ -1,7 +1,40 @@
 .container {
-  align-items: center;
+  /* align-items: center; */
 }
 
 .image {
-  border-radius: 50%;
+  border-radius: 20%;
+}
+
+.userTagContainer {
+  display: flex;
+  width: 12.5rem;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.avatar {
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
+}
+
+.userTextContainer {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  flex: 1 0 0;
+}
+
+.name {
+  overflow: hidden;
+  color: var(--Text-primary, #fff);
+  text-overflow: ellipsis;
+
+  /* Body */
+  font-family: Rubik;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
