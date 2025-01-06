@@ -1,0 +1,175 @@
+.titleDiv {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  align-self: stretch;
+}
+
+.titleTextDiv {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  flex: 1 0 0;
+}
+
+.formTitle {
+  overflow: hidden;
+  color: var(--Text-primary, #fff);
+  text-overflow: ellipsis;
+
+  /* Heading */
+  font-family: Rubik;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.pageContentWrapper {
+  /* display: flex;
+  width: 56.25rem; */
+  padding: 3rem 0rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.descriptionDiv {
+  align-self: stretch;
+}
+
+.descriptionText {
+  color: var(--Text-primary, #fff);
+
+  /* Body */
+  font-family: Rubik;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.assigneeContainer {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  align-self: stretch;
+}
+
+.assigneeText {
+  color: var(--Text-primary, #fff);
+
+  /* Label */
+  font-family: Rubik;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.userTagContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1 0 0;
+}
+
+.photoContainer {
+  width: 2rem;
+  height: 2rem;
+}
+
+.usernameTextContainer {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  flex: 1 0 0;
+}
+
+.usernameText {
+  overflow: hidden;
+  color: var(--Text-primary, #fff);
+  text-overflow: ellipsis;
+
+  /* Body */
+  font-family: Rubik;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.statusContainer {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  align-self: stretch;
+}
+
+.statusLeftText {
+  color: var(--Text-primary, #fff);
+
+  /* Label */
+  font-family: Rubik;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.statusRightContainer {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  flex: 1 0 0;
+}
+
+.statusRightText {
+  overflow: hidden;
+  color: var(--Text-primary, #fff);
+  text-overflow: ellipsis;
+
+  /* Body */
+  font-family: Rubik;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.dateContainer {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  align-self: stretch;
+}
+
+.dateLeftText {
+  color: var(--Text-primary, #fff);
+
+  /* Label */
+  font-family: Rubik;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.dateRightContainer {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  flex: 1 0 0;
+}
+
+.dateRightText {
+  overflow: hidden;
+  color: var(--Text-primary, #fff);
+  text-overflow: ellipsis;
+
+  /* Body */
+  font-family: Rubik;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
